@@ -26,20 +26,23 @@ var losses = 0;
 var chances = 9;
 
 // Generate random letter from computerChoices
+function letComputerChoose() {
+    letter = computerChoices[
+        Math.floor(Math.random() * computerChoices.length)
+    ];
 
-letter = computerChoices[
-    Math.floor(Math.random() * computerChoices.length)
-];
+    console.log("this is random letter generated " + letter);
+}
 
-console.log("this is random letter generated " + letter);
+letComputerChoose();
 
 // Start game automatically using self-invoking function:
 
-(function () {
+// (function () {
     document.getElementById("chances-left").innerHTML = chances;
     document.getElementById("letter-match").innerHTML = wins;
     document.getElementById("loss-counter").innerHTML = losses;
-}) ();
+// }) ();
 
 
 // Collect user input
@@ -65,6 +68,7 @@ if (letter.includes(userGuess)) {
     chances = 9;
     wrongLetters = [];
     // Generate new letter
+    letComputerChoose();
 }
 
 else {
